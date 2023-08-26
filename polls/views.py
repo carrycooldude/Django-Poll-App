@@ -1,13 +1,11 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
-from django.template import loader
-from django.http import Http404
-from django.views import generic
+from django.views.generic import ListView, DetailView 
 from .models import Question, Choice
 from django.utils import timezone
 
-class IndexView(generic.ListView):
+class IndexView(ListView):
     template_name = "polls/index.html"
     context_object_name = "latest_question_list"
 
@@ -21,7 +19,7 @@ class IndexView(generic.ListView):
         ]
 
 
-class DetailView(generic.DetailView):
+class DetailView(DetailView):
     model = Question
     template_name = "polls/detail.html"
     
@@ -32,7 +30,7 @@ class DetailView(generic.DetailView):
         return Question.objects.filter(pub_date__lte=timezone.now())
 
 
-class ResultsView(generic.DetailView):
+class ResultsView(DetailView):
     model = Question
     template_name = "polls/results.html"
 
