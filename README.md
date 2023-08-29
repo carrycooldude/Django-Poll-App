@@ -11,6 +11,8 @@ This is a simple Django web application for creating and managing polls. Users c
 - Allow users to vote on poll options.
 - Display poll results in a user-friendly way.
 ```
+
+## [Package 📦](https://pypi.org/project/django-polls-carrycooldude/0.1/)
 ## Getting Started
 
 
